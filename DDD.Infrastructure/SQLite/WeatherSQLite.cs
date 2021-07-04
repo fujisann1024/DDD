@@ -32,7 +32,7 @@ namespace DDD.Infrastructure.SQLite
                     {
                         //EntityからValueObjectに自動的にnewする
                         return new WheatherEntity(
-                            Convert.ToInt32(reader["AreaId"]),
+                            areaId,
                             Convert.ToDateTime(reader["DateYmd"]),
                             Convert.ToInt32(reader["Condition"]),
                             Convert.ToSingle(reader["Temperature"])
