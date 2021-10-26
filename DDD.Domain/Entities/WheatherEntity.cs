@@ -16,8 +16,19 @@ namespace DDD.Domain.Entities
                               DateTime dateYmd,
                               int condition,
                               float temperature)
+            :this(areaId, string.Empty ,dateYmd, condition, temperature)
         {
-            this.AreaId = areaId;
+           
+        }
+
+        public WheatherEntity(int areaId,
+                              string areaName,
+                              DateTime dateYmd,
+                              int condition,
+                              float temperature)
+        {
+            this.AreaId = new AreaId(areaId);
+            this.AreaName = areaName;
             this.DateYmd = dateYmd;
             this.Condition = new Condition(condition);
             //できるだけ早く値をValueObjectで受け取る
@@ -25,7 +36,8 @@ namespace DDD.Domain.Entities
         }
 
         //カプセル化
-        public int AreaId { get; }
+        public AreaId AreaId { get; }
+        public string AreaName { get; }
         public DateTime DateYmd { get; }
         public Condition Condition { get; }
         public Temperature Temperature { get; }

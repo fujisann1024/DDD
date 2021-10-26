@@ -13,12 +13,18 @@ namespace DDD.WebForm.ViewModels
         /// <summary>
         /// エンティティ
         /// </summary>
-        WheatherEntity _entity;
+        private WheatherEntity _entity;
 
 
         public WheatherListViewModelWheather(WheatherEntity entity)
         {
             this._entity = entity;
         }
+
+        public string AreaId => _entity.AreaId.DisplayValue;
+        public string AreaName => _entity.AreaName;
+        public string DateYmd => _entity.DateYmd.ToString();
+        public string Condition => _entity.Condition.DisplayValue;
+        public string Temperature => _entity.Temperature.DisplayValueWithUnitSpace;
     }
 }
