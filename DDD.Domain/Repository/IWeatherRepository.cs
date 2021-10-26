@@ -10,6 +10,17 @@ namespace DDD.Domain.Repository
 {
     public interface IWeatherRepository
     {
+        /// <summary>
+        /// 直近値を取得するメソッド
+        /// </summary>
+        /// <param name="areaId"></param>
+        /// <returns></returns>
         WheatherEntity GetLatest(int areaId);
+
+        /// <summary>
+        /// 一覧を取得するメソッド
+        /// </summary>
+        /// <returns></returns>
+        IReadOnlyList<WheatherEntity> GetData();
     }
 }

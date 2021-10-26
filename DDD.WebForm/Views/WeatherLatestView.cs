@@ -1,4 +1,5 @@
-﻿using DDD.WebForm.ViewModels;
+﻿using DDD.Domain.Entities;
+using DDD.WebForm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,13 @@ namespace DDD.WebForm
             InitializeComponent();
 
             //バインディング
-            this.AreaIdTextBox.DataBindings.Add("Text",_viewModel, nameof(_viewModel.AreaIdText));
+            this.AreasComboBox.DropDownStyle = ComboBoxStyle.DropDownList; //ユーザーが編集不可
+            this.AreasComboBox.DataBindings.Add("SelectedValue",_viewModel, nameof(_viewModel.SelecedAreaId));
+            this.AreasComboBox.DataBindings.Add("DataSource",_viewModel, nameof(_viewModel.Areas));
+            this.AreasComboBox.ValueMember = nameof(AreaEntity.AreaId);//キー
+            this.AreasComboBox.DisplayMember = nameof(AreaEntity.AreaName);//値
+
+
             this.DateYmdLabel.DataBindings.Add("Text",_viewModel, nameof(_viewModel.DateYmdText));
             this.ConditionLabel.DataBindings.Add("Text",_viewModel, nameof(_viewModel.ConditionText));
             this.TemperatureLabel.DataBindings.Add("Text",_viewModel, nameof(_viewModel.TemperatureText));
@@ -40,5 +47,7 @@ namespace DDD.WebForm
 
             _viewModel.Search();
         }
+
+        
     }
 }

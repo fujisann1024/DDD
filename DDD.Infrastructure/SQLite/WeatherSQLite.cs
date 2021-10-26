@@ -12,6 +12,7 @@ namespace DDD.Infrastructure.SQLite
 {
     public class WeatherSQLite : IWeatherRepository
     {
+        
         public WheatherEntity GetLatest(int areaId)
         {
             //選択した地域の最新のデータを天気テーブルから1件取り出す
@@ -20,28 +21,28 @@ namespace DDD.Infrastructure.SQLite
                            ORDER BY DateYmd DESC
                            LIMIT 1";
 
-            using (var connection = new SQLiteConnection(SQLiteHelper.ConnectionString))
-            using (var command = new SQLiteCommand(sql, connection))
-            {
-                connection.Open();
-
-                command.Parameters.AddWithValue("@AreaId", areaId);
-                using (var reader = command.ExecuteReader())
+            return SQLiteHelper.QuerySingle(
+                sql,
+                new List<SQLiteParameter>
                 {
-                    while(reader.Read())
-                    {
-                        //EntityからValueObjectに自動的にnewする
-                        return new WheatherEntity(
-                            areaId,
-                            Convert.ToDateTime(reader["DateYmd"]),
-                            Convert.ToInt32(reader["Condition"]),
-                            Convert.ToSingle(reader["Temperature"])
-                            ); 
-                    }
-                }
-            }
-
-            return null;
+                    new SQLiteParameter("@AreaId", areaId)
+                }.ToArray(),
+                reader =>
+                {
+                    return new WheatherEntity(
+                           areaId,
+                           Convert.ToDateTime(reader["DateYmd"]),
+                           Convert.ToInt32(reader["Condition"]),
+                           Convert.ToSingle(reader["Temperature"])
+                           );
+                },
+                null);
         }
+
+        public IReadOnlyList<WheatherEntity> GetData()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

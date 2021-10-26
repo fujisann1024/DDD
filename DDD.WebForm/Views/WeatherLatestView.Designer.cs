@@ -37,7 +37,7 @@ namespace DDD.WebForm
             this.DateYmdLabel = new System.Windows.Forms.Label();
             this.ConditionLabel = new System.Windows.Forms.Label();
             this.TemperatureLabel = new System.Windows.Forms.Label();
-            this.AreaIdTextBox = new System.Windows.Forms.TextBox();
+            this.AreasComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -113,19 +113,20 @@ namespace DDD.WebForm
             this.TemperatureLabel.TabIndex = 9;
             this.TemperatureLabel.Text = "Temperature";
             // 
-            // AreaIdTextBox
+            // AreasComboBox
             // 
-            this.AreaIdTextBox.Location = new System.Drawing.Point(81, 20);
-            this.AreaIdTextBox.Name = "AreaIdTextBox";
-            this.AreaIdTextBox.Size = new System.Drawing.Size(100, 19);
-            this.AreaIdTextBox.TabIndex = 10;
+            this.AreasComboBox.FormattingEnabled = true;
+            this.AreasComboBox.Location = new System.Drawing.Point(66, 16);
+            this.AreasComboBox.Name = "AreasComboBox";
+            this.AreasComboBox.Size = new System.Drawing.Size(121, 20);
+            this.AreasComboBox.TabIndex = 10;
             // 
-            // Form1
+            // WeatherLatestView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.AreaIdTextBox);
+            this.Controls.Add(this.AreasComboBox);
             this.Controls.Add(this.TemperatureLabel);
             this.Controls.Add(this.ConditionLabel);
             this.Controls.Add(this.DateYmdLabel);
@@ -134,7 +135,7 @@ namespace DDD.WebForm
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "WeatherLatestView";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,7 +152,7 @@ namespace DDD.WebForm
         private System.Windows.Forms.Label DateYmdLabel;
         private System.Windows.Forms.Label ConditionLabel;
         private System.Windows.Forms.Label TemperatureLabel;
-        private System.Windows.Forms.TextBox AreaIdTextBox;
+        private System.Windows.Forms.ComboBox AreasComboBox;
     }
 }
 

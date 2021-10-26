@@ -1,4 +1,5 @@
-﻿using DDD.Domain.Repository;
+﻿using DDD.Domain.Entities;
+using DDD.Domain.Repository;
 using DDD.Domain.ValueObjects;
 using DDD.Infrastructure.SQLite;
 using System;
@@ -13,21 +14,31 @@ namespace DDD.WebForm.ViewModels
     public class WeatherLatestViewModel : ViewModelBase
     {
         private IWeatherRepository _weather;
+        private IAreasRepository _areas;
 
         //引数なしだとSQLiteは自動的にnewされる
         public WeatherLatestViewModel()
-            : this(new WeatherSQLite())
+            : this(new WeatherSQLite(), new AreasSQLite())
         { }
 
-        public WeatherLatestViewModel(IWeatherRepository weather)
+        public WeatherLatestViewModel(
+            IWeatherRepository weather,
+            IAreasRepository areas
+            )
         {
             _weather = weather;
+            _areas = areas;
+
+            foreach (var area in areas.GetData())
+            {
+                Areas.Add(new AreaEntity(area.AreaId, area.AreaName));
+            }
         }
 
-        private string _areaIdText = string.Empty;
-        public string AreaIdText 
+        private object _selecedAreaId;
+        public object SelecedAreaId 
         {
-            get { return _areaIdText; }
+            get { return _selecedAreaId; }
             set
             {
                 //if (_areaIdText == value)
@@ -38,7 +49,7 @@ namespace DDD.WebForm.ViewModels
                 //_areaIdText = value;
                 //OnPropertyChaned(_areaIdText);
 
-                SetProperty(ref _areaIdText, value);
+                SetProperty(ref _selecedAreaId, value);
             }
         }
 
@@ -72,28 +83,29 @@ namespace DDD.WebForm.ViewModels
             }
         }
 
+        public BindingList<AreaEntity> Areas { get; set; }
+        = new BindingList<AreaEntity>();
+
         //public event PropertyChangedEventHandler PropertyChanged;
 
         public void Search()
         {
-            var entity = _weather.GetLatest(Convert.ToInt32(this.AreaIdText));
+            var entity = _weather.GetLatest(Convert.ToInt32(this._selecedAreaId));
 
-            if (entity != null)
+            if (entity == null)
+            {
+                DateYmdText = string.Empty;
+                ConditionText = string.Empty;
+                TemperatureText = string.Empty;
+            }
+            else
             {
                 DateYmdText = entity.DateYmd.ToString();
                 ConditionText = entity.Condition.DisplayValue;
                 TemperatureText = entity.Temperature.DisplayValueWithUnitSpace;
-
             }
 
-            //OnPropertyChaned("");
         }
 
-        //public void OnPropertyChaned(string propertyName)
-        //{
-        //    //PropertyChangedがnullでなければInvoke
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
-        
     }
 }
