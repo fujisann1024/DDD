@@ -1,5 +1,6 @@
 ﻿using DDD.Domain.Entities;
 using DDD.WebForm.ViewModels;
+using DDD.WebForm.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,6 +49,12 @@ namespace DDD.WebForm
             _viewModel.Search();
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (var f = new WetherListView())
+            {
+                f.ShowDialog();
+            }
+        }
     }
 }

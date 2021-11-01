@@ -41,7 +41,24 @@ namespace DDD.Infrastructure.SQLite
 
         public IReadOnlyList<WheatherEntity> GetData()
         {
-            throw new NotImplementedException();
+            string sql = @"SELECT A.AreaId,
+                                  ifnull(B.AreaName,'') as AreaName,
+                                  A.DateYmd,
+                                  A.Condition,
+                                  A.Temperature
+                           FROM Weather A
+                           LEFT OUTER JOIN Areas B
+                           ON A.AreaId =B.AreaId";
+
+            return SQLiteHelper.Query(sql,reader => {
+                return new WheatherEntity(
+                    Convert.ToInt32(reader["AreaId"]),
+                    Convert.ToString(reader["AreaName"]),
+                    Convert.ToDateTime(reader["DateYmd"]),
+                    Convert.ToInt32(reader["Condition"]),
+                    Convert.ToSingle(reader["Temperature"])
+                    );
+            });
         }
 
     }
