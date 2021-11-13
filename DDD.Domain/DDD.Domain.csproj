@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="Entities\AreaEntity.cs" />
     <Compile Include="Entities\WheatherEntity.cs" />
+    <Compile Include="Exceptions\InputException.cs" />
     <Compile Include="Helpers\FloatHelper.cs" />
+    <Compile Include="Helpers\Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IAreasRepository.cs" />
     <Compile Include="Repository\IWeatherRepository.cs" />

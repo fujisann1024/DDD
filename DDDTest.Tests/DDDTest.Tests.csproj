@@ -69,7 +69,7 @@
     <Compile Include="TemperatureTest.cs" />
     <Compile Include="WeatherSaveViewModelTest.cs" />
     <Compile Include="WheatherListViewModelTest.cs" />
-    <Compile Include="WeatherLatestView.cs" />
+    <Compile Include="WeatherLatestViewTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

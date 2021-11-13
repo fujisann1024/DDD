@@ -61,5 +61,9 @@ namespace DDD.Infrastructure.SQLite
             });
         }
 
+        public void Save(WheatherEntity wheather)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

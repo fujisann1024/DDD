@@ -22,5 +22,11 @@ namespace DDD.Domain.Repository
         /// </summary>
         /// <returns></returns>
         IReadOnlyList<WheatherEntity> GetData();
+
+        /// <summary>
+        /// 天気データを保存するメソッド
+        /// </summary>
+        /// <param name="wheather"></param>
+        void Save(WheatherEntity wheather);
     }
 }

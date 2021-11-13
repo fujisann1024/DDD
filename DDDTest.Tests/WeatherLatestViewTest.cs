@@ -10,7 +10,7 @@ using System.Data;
 namespace DDDTest.Tests
 {
     [TestClass]
-    public class WeatherLatestView
+    public class WeatherLatestViewTest
     {
         [TestMethod]
         public void シナリオ()
