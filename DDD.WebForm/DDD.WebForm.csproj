@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeatherLatestViewModel.cs" />
+    <Compile Include="ViewModels\WeatherSaveViewModel.cs" />
     <Compile Include="ViewModels\WheatherListViewModel.cs" />
     <Compile Include="ViewModels\WheatherListViewModelWheather.cs" />
     <Compile Include="Views\WeatherLatestView.cs">
