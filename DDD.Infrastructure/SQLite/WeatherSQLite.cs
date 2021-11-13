@@ -61,9 +61,28 @@ namespace DDD.Infrastructure.SQLite
             });
         }
 
-        public void Save(WheatherEntity wheather)
+        public void Save(WheatherEntity weather)
         {
-            throw new NotImplementedException();
+            string Insert = @"INSERT INTO Weather(AreaId,DateYmd,Condition,Temperature)
+                              Values(@AreaId,@DateYmd,@Condition,@Temperature)";
+
+            string Update = @"UPDATE Weather
+                              SET Condition = @Condition,
+                                  Temperature = @Temperature
+                              WHERE AreaId = @AreaId
+                              AND DateYmd = @DateYmd";
+
+            var args = new List<SQLiteParameter>
+            {
+
+               new SQLiteParameter("@AreaId",weather.AreaId.Value),
+               new SQLiteParameter("@DateYmd", weather.DateYmd),
+               new SQLiteParameter("@Condition", weather.Condition.Value),
+               new SQLiteParameter("@Temperature", weather.Temperature.Value),
+
+            };
+
+            SQLiteHelper.Execute(Insert,Update,args.ToArray());
         }
     }
 }

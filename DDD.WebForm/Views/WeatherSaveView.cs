@@ -49,6 +49,7 @@ namespace DDD.WebForm.Views
                 try
                 {
                     _viewModel.Save();
+                    MessageBox.Show("保存が完了しました");
                 }
                 catch (Exception ex)
                 {
