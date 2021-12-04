@@ -60,8 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories.cs" />
+    <Compile Include="Fake\MeasureFake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite\AreasSQLite.cs" />
+    <Compile Include="SQLite\MeasureSQLite.cs" />
     <Compile Include="SQLite\SQLiteHelper.cs" />
     <Compile Include="SQLite\WeatherSQLite.cs" />
   </ItemGroup>

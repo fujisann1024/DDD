@@ -65,11 +65,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\LatestViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeatherLatestViewModel.cs" />
     <Compile Include="ViewModels\WeatherSaveViewModel.cs" />
     <Compile Include="ViewModels\WheatherListViewModel.cs" />
     <Compile Include="ViewModels\WheatherListViewModelWheather.cs" />
+    <Compile Include="Views\LatestView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LatestView.Designer.cs">
+      <DependentUpon>LatestView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\WeatherLatestView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +97,9 @@
     <Compile Include="Views\WetherListView.Designer.cs">
       <DependentUpon>WetherListView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\LatestView.resx">
+      <DependentUpon>LatestView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\WeatherLatestView.resx">
       <DependentUpon>WeatherLatestView.cs</DependentUpon>
     </EmbeddedResource>

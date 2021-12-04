@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,18 +43,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AreaEntity.cs" />
+    <Compile Include="Entities\MeasureEntity.cs" />
     <Compile Include="Entities\WheatherEntity.cs" />
     <Compile Include="Exceptions\InputException.cs" />
     <Compile Include="Helpers\FloatHelper.cs" />
     <Compile Include="Helpers\Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IAreasRepository.cs" />
+    <Compile Include="Repository\IMeasureRepository.cs" />
     <Compile Include="Repository\IWeatherRepository.cs" />
+    <Compile Include="Shared.cs" />
     <Compile Include="ValueObjects\AreaId.cs" />
     <Compile Include="ValueObjects\Condition.cs" />
     <Compile Include="ValueObjects\Temperature.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="NDDD.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

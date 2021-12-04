@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDD.WebForm.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace DDD.WebForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WeatherLatestView());
+            //Application.Run(new WeatherLatestView());
+            Application.Run(new LatestView());
         }
     }
 }

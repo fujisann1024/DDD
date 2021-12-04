@@ -36,5 +36,14 @@ namespace DDD.WebForm.ViewModels
         {
             return DateTime.Now;
         }
+
+        //データが変更された時、View側に通知をとばす
+        public void OnPropertyChanged()
+        {
+            PropertyChanged.Invoke(
+                this,
+                new PropertyChangedEventArgs("")//すべてのプロパティを指定
+                ); 
+        }
     }
 }
