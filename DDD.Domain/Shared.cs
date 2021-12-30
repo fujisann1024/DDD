@@ -14,7 +14,12 @@ namespace DDD.Domain
         /// <summary>
         /// Fakeかどうか
         /// </summary>
-        public static bool IsFake { get; } = ConfigurationManager.AppSettings["ISFake"] == "1";
+        public static bool IsFake { get; } = ConfigurationManager.AppSettings["IsFake"] == "1";
+
+        /// <summary>
+        /// Fakeデータ(CSV)の格納先
+        /// </summary>
+        public static string FakePath { get; } = ConfigurationManager.AppSettings["FakePath"];
        
     }
 }
