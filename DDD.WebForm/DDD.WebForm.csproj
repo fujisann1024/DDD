@@ -71,11 +71,23 @@
     <Compile Include="ViewModels\WeatherSaveViewModel.cs" />
     <Compile Include="ViewModels\WheatherListViewModel.cs" />
     <Compile Include="ViewModels\WheatherListViewModelWheather.cs" />
+    <Compile Include="Views\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LatestView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\LatestView.Designer.cs">
       <DependentUpon>LatestView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\WeatherLatestView.cs">
       <SubType>Form</SubType>
@@ -97,8 +109,14 @@
     <Compile Include="Views\WetherListView.Designer.cs">
       <DependentUpon>WetherListView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\LatestView.resx">
       <DependentUpon>LatestView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\WeatherLatestView.resx">
       <DependentUpon>WeatherLatestView.cs</DependentUpon>

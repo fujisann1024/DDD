@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace DDD.WebForm.Views
 {
-    public partial class LatestView : Form
+    public partial class LatestView : BaseForm
     {
         private LatestViewModel _viewModel = new LatestViewModel();
 

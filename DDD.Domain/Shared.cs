@@ -20,6 +20,10 @@ namespace DDD.Domain
         /// Fakeデータ(CSV)の格納先
         /// </summary>
         public static string FakePath { get; } = ConfigurationManager.AppSettings["FakePath"];
-       
+
+        /// <summary>
+        /// ログイン会員のID
+        /// </summary>
+        public static string LoginId { get; set; } = string.Empty;
     }
 }

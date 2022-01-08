@@ -18,7 +18,7 @@ namespace DDD.WebForm
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new WeatherLatestView());
-            Application.Run(new LatestView());
+            Application.Run(new LoginView());
         }
     }
 }

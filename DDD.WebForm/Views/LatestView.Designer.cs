@@ -103,7 +103,7 @@ namespace DDD.WebForm.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 209);
+            this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.MeasureValueTextBox);
             this.Controls.Add(this.label3);
@@ -113,6 +113,13 @@ namespace DDD.WebForm.Views
             this.Controls.Add(this.label1);
             this.Name = "LatestView";
             this.Text = "LatestView";
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.AreaIdTextBox, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.MeasureDateTextBox, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.MeasureValueTextBox, 0);
+            this.Controls.SetChildIndex(this.SearchButton, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
