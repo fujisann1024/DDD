@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDD.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,24 +15,24 @@ namespace DDD.Domain.Entities
            ,float measureValue
             )
         {
-            this.AreaId = areaId;
-            this.MeasureDate = measureDate;
-            this.MeasureValue = measureValue;
+            this.AreaId = new AreaId(areaId);
+            this.MeasureDate = new MeasureDate(measureDate);
+            this.MeasureValue = new MeasureValue(measureValue);
         }
 
         /// <summary>
         /// エリアID
         /// </summary>
-        public int AreaId { get; }
+        public AreaId AreaId { get; }
 
         /// <summary>
         /// 計測日時
         /// </summary>
-        public DateTime MeasureDate { get; }
+        public MeasureDate MeasureDate { get; }
 
         /// <summary>
         /// 計測値
         /// </summary>
-        public float MeasureValue { get; }
+        public MeasureValue MeasureValue { get; }
     }
 }

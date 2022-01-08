@@ -31,9 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.14.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.14\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +49,9 @@
     <Compile Include="Entities\AreaEntity.cs" />
     <Compile Include="Entities\MeasureEntity.cs" />
     <Compile Include="Entities\WheatherEntity.cs" />
+    <Compile Include="Exceptions\DataNotExistsException.cs" />
+    <Compile Include="Exceptions\ExceptionBase.cs" />
+    <Compile Include="Exceptions\FakeException.cs" />
     <Compile Include="Exceptions\InputException.cs" />
     <Compile Include="Helpers\FloatHelper.cs" />
     <Compile Include="Helpers\Guard.cs" />
@@ -52,9 +59,12 @@
     <Compile Include="Repository\IAreasRepository.cs" />
     <Compile Include="Repository\IMeasureRepository.cs" />
     <Compile Include="Repository\IWeatherRepository.cs" />
+    <Compile Include="Repository\MeasureRepository.cs" />
     <Compile Include="Shared.cs" />
     <Compile Include="ValueObjects\AreaId.cs" />
     <Compile Include="ValueObjects\Condition.cs" />
+    <Compile Include="ValueObjects\MeasureDate.cs" />
+    <Compile Include="ValueObjects\MeasureValue.cs" />
     <Compile Include="ValueObjects\Temperature.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
@@ -62,6 +72,7 @@
     <None Include="NDDD.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

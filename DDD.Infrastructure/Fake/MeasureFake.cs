@@ -1,5 +1,6 @@
 ﻿using DDD.Domain;
 using DDD.Domain.Entities;
+using DDD.Domain.Exceptions;
 using DDD.Domain.Repository;
 using System;
 using System.Collections.Generic;
@@ -30,12 +31,14 @@ namespace DDD.Infrastructure.Fake
                     Convert.ToSingle(value[2])
                     );
             }
-            catch{
-                return new MeasureEntity(
-                    10
-                    , Convert.ToDateTime("2012/12/12 11:22:33")
-                    , 123.34f
-                    );
+            catch(Exception ex)
+            {
+                throw new FakeException("MeasureFake.csvファイルが見つかりません",ex);
+                //return new MeasureEntity(
+                //    10
+                //    , Convert.ToDateTime("2012/12/12 11:22:33")
+                //    , 123.34f
+                //    );
 
             }
 

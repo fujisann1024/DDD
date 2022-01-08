@@ -11,7 +11,7 @@ namespace DDD.WebForm.ViewModels
 {
     public class LatestViewModel : ViewModelBase
     {
-        private IMeasureRepository _measureRepository;
+        private MeasureRepository _measureRepository;
 
         //private MeasureEntity _measure;
         private string _areaIdText = string.Empty;
@@ -26,7 +26,7 @@ namespace DDD.WebForm.ViewModels
 
         public LatestViewModel(IMeasureRepository measureRepository)
         {
-            _measureRepository = measureRepository;
+            _measureRepository = new MeasureRepository(measureRepository);
         }
 
         public string AreaIdText 
@@ -50,9 +50,9 @@ namespace DDD.WebForm.ViewModels
         public void Serch()
         {
            var measure = _measureRepository.GetLatest();
-            AreaIdText = measure.AreaId.ToString().PadLeft(4, '0');
-            MeasureDateText = measure.MeasureDate.ToString("yyyy/MM/dd HH:mm:ss");
-            MeasureValueText = Math.Round(measure.MeasureValue, 2) + "℃";
+            AreaIdText = measure.AreaId.DisplayValue;
+            MeasureDateText = measure.MeasureDate.DisplayValue;
+            MeasureValueText = measure.MeasureValue.DisplayValue;
 
         }
     }

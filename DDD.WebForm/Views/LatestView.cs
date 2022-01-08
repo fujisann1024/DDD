@@ -1,4 +1,5 @@
-﻿using DDD.Infrastructure;
+﻿using DDD.Domain.Exceptions;
+using DDD.Infrastructure;
 using DDD.Infrastructure.Fake;
 using DDD.Infrastructure.SQLite;
 using DDD.WebForm.ViewModels;
@@ -43,7 +44,15 @@ namespace DDD.WebForm.Views
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            _viewModel.Serch();
+            try
+            {
+                _viewModel.Serch();
+            }
+            catch (Exception ex)
+            {
+                ExceptionProc(ex);
+            }
+
         }
     }
 }
