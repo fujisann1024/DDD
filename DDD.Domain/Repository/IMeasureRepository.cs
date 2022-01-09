@@ -10,5 +10,8 @@ namespace DDD.Domain.Repository
     public interface IMeasureRepository
     {
         MeasureEntity GetLatest();
+
+        IReadOnlyList<MeasureEntity> GetLatests();
+
     }
 }

@@ -14,5 +14,10 @@ namespace DDD.Infrastructure.SQLite
         {
             throw new NotImplementedException();
         }
+
+        public IReadOnlyList<MeasureEntity> GetLatests()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

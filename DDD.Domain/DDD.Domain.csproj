@@ -61,6 +61,7 @@
     <Compile Include="Repository\IWeatherRepository.cs" />
     <Compile Include="Repository\MeasureRepository.cs" />
     <Compile Include="Shared.cs" />
+    <Compile Include="StaticValues\Measures.cs" />
     <Compile Include="ValueObjects\AreaId.cs" />
     <Compile Include="ValueObjects\Condition.cs" />
     <Compile Include="ValueObjects\MeasureDate.cs" />
@@ -73,6 +74,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Module\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

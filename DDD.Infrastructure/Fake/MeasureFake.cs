@@ -43,5 +43,30 @@ namespace DDD.Infrastructure.Fake
             }
 
         }
+
+        public IReadOnlyList<MeasureEntity> GetLatests()
+        {
+            var result = new List<MeasureEntity>();
+            result.Add(
+                 new MeasureEntity(
+                10
+                , Convert.ToDateTime("2012/12/12 11:22:33")
+                , 123.34f
+                ));
+            result.Add(
+                 new MeasureEntity(
+                20
+                , Convert.ToDateTime("2012/12/12 11:22:33")
+                , 223.34f
+                ));
+            result.Add(
+                 new MeasureEntity(
+                30
+                , Convert.ToDateTime("2012/12/12 11:22:33")
+                , 323.34f
+                ));
+
+            return result;
+        }
     }
 }

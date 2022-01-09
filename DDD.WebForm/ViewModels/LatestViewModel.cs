@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace DDD.WebForm.ViewModels
 {
@@ -53,7 +54,18 @@ namespace DDD.WebForm.ViewModels
             AreaIdText = measure.AreaId.DisplayValue;
             MeasureDateText = measure.MeasureDate.DisplayValue;
             MeasureValueText = measure.MeasureValue.DisplayValue;
+        }
 
+        public void Save()
+        {
+            using (var scope = new TransactionScope())
+            {
+                //ヘッダー
+                //明細
+                //在庫
+                //履歴
+                scope.Complete();
+            }
         }
     }
 }

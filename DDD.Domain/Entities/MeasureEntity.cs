@@ -7,8 +7,17 @@ using System.Threading.Tasks;
 
 namespace DDD.Domain.Entities
 {
+    /// <summary>
+    /// 計測エンティティ
+    /// </summary>
     public class MeasureEntity
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="areaId">エリアID</param>
+        /// <param name="measureDate">計測日時</param>
+        /// <param name="measureValue">計測値</param>
         public MeasureEntity(
             int areaId
            ,DateTime measureDate
